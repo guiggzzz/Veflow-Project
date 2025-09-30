@@ -3,6 +3,7 @@
 
 -- Drop tables if they exist (for clean restart)
 DROP TABLE IF EXISTS velostoulouse;
+DROP TABLE IF EXISTS stationtoulouse;
 
 -- VeloToulouse table - stores velos distribution information from CSV data
 CREATE TABLE velostoulouse (
@@ -13,7 +14,7 @@ CREATE TABLE velostoulouse (
     bike_stands INTEGER,
     available_bike_stands INTEGER,
     available_bikes INTEGER,
-    open_status BOOLEAN,
+    open_status BOOLEAN
 );
 
 -- Station table - stores station informations of Toulouse
@@ -22,7 +23,7 @@ CREATE TABLE stationtoulouse (
     name_station VARCHAR(100),
     address_station VARCHAR(10),
     longitude DECIMAL(10,6),
-    latitude DECIMAL(10,6),
+    latitude DECIMAL(10,6)
 );
 
 -- Create indexes for better query performance
