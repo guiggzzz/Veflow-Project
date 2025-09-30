@@ -1,4 +1,5 @@
 from extract_data import extract
+from transform_data import transform
 import json
 
 
@@ -11,11 +12,14 @@ def main():
     print("Démarrage de l'ETL\n")
     print("Extraction des données depuis l'API\n")
     data = extract(BASE_URL, API_KEY)
-    
+
+    # Transformation
+    print("Transformation des données  extraites depuis l'API\n")
+    df = transform(data)
+
     #optionnel, juste pour les tests on print les data
     print(f"\nAperçu des données:\n")
-    print(json.dumps(data[:2], indent=4, ensure_ascii=False))
-
+    print(df.head())
 
 
 if __name__ == "__main__":
