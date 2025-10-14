@@ -26,9 +26,19 @@ CREATE TABLE stationtoulouse (
     latitude DECIMAL(10,6)
 );
 
+CREATE TABLE veflow (
+    datetime TIMESTAMP NOT NULL,
+    number INTEGER,
+    name VARCHAR(100),
+    address VARCHAR(255),
+    bike_stands INTEGER,
+    available_bike_stands INTEGER,
+    available_bikes INTEGER
+);
+
 -- Create indexes for better query performance
-CREATE INDEX idx_station_name ON velostoulouse(name_station);
-CREATE INDEX idx_station_name ON stationtoulouse(name_station);
+CREATE INDEX idx_station_name_velos ON velostoulouse(name_station);
+CREATE INDEX idx_station_name_stations ON stationtoulouse(name_station);
 
 -- Verify tables were created
 \dt
