@@ -8,6 +8,7 @@ This module handles loading cleaned data into PostgreSQL database:
 
 import pandas as pd
 from sqlalchemy import create_engine, text
+from sqlalchemy.exc import IntegrityError
 import psycopg2
 
 # Database connection configuration
@@ -42,21 +43,28 @@ def load_to_database(veflow_df):
     
         # TODO: Load veflow data
         if not veflow_df.empty:
-            veflow_df.to_sql('veflow', engine, if_exists='append', index=False)
-        
-        # TODO: Print loading statistics
-        if not veflow_df.empty:
-            print(f"✅ Loaded {len(veflow_df)} observations to database")
+            rows = veflow_df.to_dict(orient='records')
+            insert_query = text("""
+                INSERT INTO veflow (datetime, number, name, address, bike_stands, available_bike_stands, available_bikes)
+                VALUES (:datetime, :number, :name, :address, :bike_stands, :available_bike_stands, :available_bikes)
+                ON CONFLICT DO NOTHING
+            """)
+
+            with engine.begin() as conn:
+                result = conn.execute(insert_query, rows)
+                inserted_rows = result.rowcount  # number of rows actually inserted
+
+            print(f"✅ Loaded {inserted_rows} / {len(veflow_df)} observations to database")
         else:
             print("ℹ️  No veflow data to load")
-        
+
     except Exception as e:
         print(f"❌ Error loading data to database: {e}")
         print("💡 Make sure:")
         print("   - PostgreSQL is running")
         print("   - Database 'veflow_db' exists") 
         print("   - Username and password are correct")
-        print("   - Tables are created (run database_setup.sql)")
+        print("   - Tables are created (run setup_db.py)")
 
 def verify_data():
     """

@@ -33,7 +33,8 @@ CREATE TABLE veflow (
     address VARCHAR(255),
     bike_stands INTEGER,
     available_bike_stands INTEGER,
-    available_bikes INTEGER
+    available_bikes INTEGER,
+    UNIQUE (datetime, number)
 );
 
 -- Create indexes for better query performance
