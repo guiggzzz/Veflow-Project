@@ -3,7 +3,7 @@ from psycopg2 import sql
 
 
 USER = "mqtho"
-PASSWORD = ""
+PASSWORD = "Thomas0911mqtho"
 
 # paramètres de connexion à Postgres (instance principale, pas la DB à créer)
 conn = psycopg2.connect(
@@ -31,21 +31,22 @@ if not exists:
     conn = psycopg2.connect(dbname=db_name, user=USER, password=PASSWORD, host="localhost", port="5432")
     cur = conn.cursor()
 
-    cur.execute("DROP TABLE IF EXISTS station_toulouse;")
+    cur.execute("DROP TABLE IF EXISTS stations_toulouse;")
     cur.execute("""
-        CREATE TABLE station_toulouse (
-        id SERIAL PRIMARY KEY,
-        name_station VARCHAR,
-        address_station VARCHAR,
+        CREATE TABLE stations_toulouse (
+        id INTEGER PRIMARY KEY,
+        name_station VARCHAR(255),
+        address_station VARCHAR(255),
         longitude DECIMAL(10,6),
         latitude DECIMAL(10,6)
     );
     """)
-    print("Table station_toulouse created (if it did not exist).")
+    print("Table stations_toulouse created (if it did not exist).")
 
-    cur.execute("DROP TABLE IF EXISTS statut_stations;")
+    cur.execute("DROP TABLE IF EXISTS status_stations;")
     cur.execute("""
-        CREATE TABLE statut_stations (
+        CREATE TABLE status_stations (
+        id SERIAL PRIMARY KEY,
         datetime TIMESTAMP NOT NULL,
         number INTEGER,
         name VARCHAR(100),

@@ -1,8 +1,7 @@
 import json
 import pandas as pd
 
-#
-def transform(data): 
+def transform_status(data): 
     try:
         # mise au format dataframe pandas
         df = pd.json_normalize(data)
@@ -20,15 +19,16 @@ def transform(data):
 
         return df
 
-    
     except Exception as e:
         print(f"Error transforming data: {e}")
 
         return pd.DataFrame()
 
-def convert_json_to_df(data):
+def transform_stations_data(data):
+    "Convertit les données JSON des stations en DataFrame pandas"
     try:
         df = pd.DataFrame(data)
+        df.columns = ['id', 'name_station', 'address_station', 'longitude', 'latitude']
         return df
     except Exception as e:
         print(f"Error converting JSON to DataFrame: {e}")
