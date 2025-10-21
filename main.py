@@ -1,6 +1,6 @@
-from extract_data import extract, read_json
-from transform_data import transform, convert_json_to_df
-from load_data import test_database_connection, load_to_database, verify_data, load_json_to_database
+from ETL.extract_data import extract, read_json
+from ETL.transform_data import transform, convert_json_to_df
+from ETL.load_data import test_database_connection, load_to_database, verify_data, load_json_to_database
 import json
 
 
