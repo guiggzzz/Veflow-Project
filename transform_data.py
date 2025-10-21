@@ -1,5 +1,7 @@
+import json
 import pandas as pd
 
+#
 def transform(data): 
     try:
         # mise au format dataframe pandas
@@ -24,3 +26,10 @@ def transform(data):
 
         return pd.DataFrame()
 
+def convert_json_to_df(data):
+    try:
+        df = pd.DataFrame(data)
+        return df
+    except Exception as e:
+        print(f"Error converting JSON to DataFrame: {e}")
+        return pd.DataFrame()
