@@ -1,9 +1,10 @@
 import psycopg2
 from psycopg2 import sql
+import os
 
 
-USER = "mqtho"
-PASSWORD = "Thomas0911mqtho"
+USER = os.getenv("POSTGRES_USER")
+PASSWORD = os.getenv("POSTGRES_PASSWORD")
 
 # paramètres de connexion à Postgres (instance principale, pas la DB à créer)
 conn = psycopg2.connect(

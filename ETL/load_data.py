@@ -10,9 +10,10 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import IntegrityError
 import psycopg2
+import os
 
-USER = "mqtho"
-PASSWORD = "Thomas0911mqtho"
+USER = os.getenv("POSTGRES_USER")
+PASSWORD = os.getenv("POSTGRES_PASSWORD")
 
 # Database connection configuration
 # TODO: Update these values with your actual database credentials
