@@ -8,7 +8,6 @@
 ```text
 ├── ETL
 │   ├── extract_data.py        # Définition des fonctions pour extraire les données depuis l'API ou une source externe
-
 │   ├── load_data.py           # Définition des fonctions pour charger les données transformées dans la base de données
 │   └── transform_data.py      # Définition des fonctions pour nettoyer, filtrer ou transformer les données extraites
 │
