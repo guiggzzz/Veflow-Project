@@ -5,8 +5,10 @@
  - Transform : Nettoyage, filtrage des données
  - Load : Chargement dans une base de données PostgreSQL
 
+```text
 ├── ETL
 │   ├── extract_data.py        # Définition des fonctions pour extraire les données depuis l'API ou une source externe
+
 │   ├── load_data.py           # Définition des fonctions pour charger les données transformées dans la base de données
 │   └── transform_data.py      # Définition des fonctions pour nettoyer, filtrer ou transformer les données extraites
 │
@@ -24,13 +26,14 @@
 ├── setup_db.py                # Script Python pour initialiser/configurer la base de données
 │
 └── test_api.ipynb             # Notebook de test Jupyter pour tester l’API
+```
 
 # Prérequis
 Pour lancer cette pipeline ETL, il faut avoir installé:
 
-Python 3.x
-pip (Python package installer) et conda
-PostgreSQL
+- Python 3.x  
+- `pip` (Python package installer) et `conda`  
+- PostgreSQL
 
 # Setup
 1. Cloner le repo Git
