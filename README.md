@@ -16,8 +16,6 @@
 ├── data
 │   └── toulouse.json          # Fichier json contenant les données statiques des stations du réseau Vélo Toulouse
 │
-├── database_setup.sql         # Script SQL pour créer les tables et initialiser le schéma de la base de données (deprecated) 
-│
 ├── main.py                    # Script principal de la pipeline ETL (orchestration de l’extraction, transformation et chargement)
 │
 ├── requirements.txt           # Liste des dépendances Python nécessaires pour exécuter le projet
@@ -65,7 +63,7 @@ python setup_db.py
 ```
 
 # Utilisation
-Pour réaliser un appel à l'API et stocker les données dans votre base de données, exécuter la commander suivante:
+Pour réaliser un appel à l'API et stocker les données dans votre base de données PostgreSQL, exécuter la commande suivante:
 ```bash
 python main.py
 ```
