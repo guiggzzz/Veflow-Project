@@ -22,6 +22,8 @@
 │
 ├── setup_db.py                # Script Python pour initialiser/configurer la base de données
 │
+├── demo_data_manipulation.ipynb # Notebook Jupyter démonstration de l'utilisation des données.
+│
 ├── Extract_data_test.csv      # Exemple de données récupérées grâce à la pipeline ETL sur une heure
 │
 └── test_api.ipynb             # Notebook de test Jupyter pour tester l’API
@@ -69,6 +71,8 @@ Pour réaliser un appel à l'API et stocker les données dans votre base de donn
 ```bash
 python main.py
 ```
+
+Le fichier demo_data_manipulation.ipynb est un Jupyter Notebook contenant un exemple de manipulation des données.
 
 
 
